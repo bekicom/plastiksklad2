@@ -176,7 +176,7 @@ OrderSchema.pre("save", function (next) {
   this.total_uzs = uzs;
   this.total_usd = usd;
 
-  
+  next();
 });
 
 /* =========================
@@ -186,6 +186,5 @@ OrderSchema.index({ createdAt: -1 });
 OrderSchema.index({ agent_id: 1, createdAt: -1 });
 OrderSchema.index({ customer_id: 1, createdAt: -1 });
 OrderSchema.index({ status: 1, source: 1 });
-OrderSchema.index({ sale_id: 1 });
 
 module.exports = mongoose.model("Order", OrderSchema);

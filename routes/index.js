@@ -235,15 +235,6 @@ router.delete(
   productController.deleteProduct,
 );
 
-
-router.put(
-  "/products/:id",
-  rAuth,
-  rRole("ADMIN"),
-  uploadProductImages.single("image"),
-  productController.updateProduct,
-);
-
 // purchase (kirim) yaratish
 // purchase (kirim) yaratish
 router.post(

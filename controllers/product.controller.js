@@ -1,6 +1,5 @@
 const Product = require("../modules/products/Product");
-const fs = require("fs");
-const path = require("path");
+const mongoose = require("mongoose");
 
 const UNITS = ["DONA", "PACHKA", "KG"];
 const CUR = ["UZS", "USD"];
@@ -19,6 +18,10 @@ function normalizeText(v) {
 function safeNumber(v, def = 0) {
   const n = Number(v);
   return Number.isFinite(n) ? n : def;
+}
+
+function escapeRegex(str = "") {
+  return String(str).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
 // ✅ IMAGE URL BUILDER (MUHIM)
